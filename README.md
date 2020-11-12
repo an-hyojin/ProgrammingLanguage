@@ -1,42 +1,90 @@
 # ProgrammingLanguage
 
-Racket cute Intepreter 
+## Racket cute Intepreter 
 
-Input Example : ( car ' ( 1 2 3 ) ) // 노드들 사이에 띄어쓰기 해서 입력
-Output : 1
+### Input 양식
+
+노드들 사이에 띄어쓰기 해서 입력
+```
+( car ' ( 1 2 3 ) ) 
+```
+
+### 함수 설명
 
 1. CAR
-  Input: ( car ' ( 2 3 4 ) )
-  Output: 2
+```
+  >   ( car ' ( 2 3 4 ) )
+  ... 2
+ ``` 
   
 2. CDR
-  Input: ( cdr ' ( 2 3 4 ) )
-  Output: ' ( 3 4 )
-  
+```
+  >   ( cdr ' ( 2 3 4 ) )
+  ... ' ( 3 4 )
+```
+
 3. CONS
-  Input: ( cons ' ( 2 3 ) ' ( 4 5 6 ) )
-  Output: ' ( ( 2 3 ) 4 5 6 )
-  
+```
+  >   ( cons ' ( 2 3 ) ' ( 4 5 6 ) )
+  ... ' ( ( 2 3 ) 4 5 6 )
+```
+
 4. NULL?
-  Input: ( null? ' ( ) )
-  Output: #T
-  
-  Input: ( null? ' ( 1 2 3 ) )
-  Output: #F
- 
-  
+
+```
+  >   ( null? ' ( ) )
+  ... #T
+  >   ( null? ' ( 1 2 3 ) )
+  ... #F
+```
+
 5. ATOM?
-  Input: ( atom? ' ( ) )
-  Output: #T
-  
-  Input: ( atom? ' ( 1 2 ) )
-  Output: #F
-  
+```
+  >   ( atom? ' ( ) )
+  ... #T
+  >   ( atom? ' ( 1 2 ) )
+  ... #F
+```
+
 6. EQ?
-  Input: ( eq? ' a ' a )
-  Output: #T
-  
-  Input: ( eq? ' ( 1 2 ) ' ( 1 2 ) )
-  Output: #F
-  
- 
+```
+  >   ( eq? ' a ' a )
+  ... #T
+  >   ( eq? ' ( 1 2 ) ' ( 1 2 ) )
+  ... #F
+```
+7. NOT
+```
+  >   ( not ( < 1 2 ) )
+  ... #F
+```
+
+8. DEFINE
+```
+  >   ( define a 1 )
+  >   a
+  ... 1
+
+```
+9. lambda
+```
+>   ( define plus1 ( lambda ( x ) ( + x 1 ) ) )
+>   ( plus1 2 )
+... 3
+>   ( define plus2 ( lambda ( x ) (+ ( plus1 x ) 1 ) ) )
+>   ( plus2 3 )
+... 5
+>   ( define cube ( lambda ( n ) ( define sqrt ( lambda ( n ) ( * n n ) ) ) ( * ( sqrt n ) n ) ) )
+... ( cube 3 )
+```
+
+10. binary
+```
+>   ( + 1 2 )
+... 3
+>   ( > 3 4 )
+... #F
+>   ( = 1 1 )
+... #T
+```
+
